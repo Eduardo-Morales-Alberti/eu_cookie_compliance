@@ -343,11 +343,11 @@ class EuCookieComplianceConfigForm extends ConfigFormBase {
       '#required' => TRUE,
     ];
 
-    $form['popup_message']['disagree_button'] = [
+    $form['popup_message']['show_more_info'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show "Cookie Policy" and "More info" buttons'),
       '#description' => $this->t('If this option is checked, the cookie policy button will be shown on the site. Disabling this option will hide both the "Cookie Policy" button on the information banner and the "More info" button on the "Thank you" banner.'),
-      '#default_value' => $config->get('show_disagree_button'),
+      '#default_value' => $config->get('show_more_info'),
       '#states' => [
         'visible' => [
           "input[name='method']" => ['value' => 'default'],
@@ -355,18 +355,18 @@ class EuCookieComplianceConfigForm extends ConfigFormBase {
       ],
     ];
 
-    $form['popup_message']['popup_disagree_button_message'] = [
+    $form['popup_message']['popup_more_info_button_message'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Cookie policy button label'),
-      '#default_value' => $config->get('popup_disagree_button_message'),
+      '#default_value' => $config->get('popup_more_info_button_message'),
       '#size' => 30,
       '#states' => [
         'visible' => [
-          ['input[name="disagree_button"]' => ['checked' => TRUE]],
+          ['input[name="more_info_button"]' => ['checked' => TRUE]],
           ['input[name="method"]' => ['!value' => 'default']],
         ],
         'required' => [
-          ['input[name="disagree_button"]' => ['checked' => TRUE]],
+          ['input[name="more_info_button"]' => ['checked' => TRUE]],
           ['input[name="method"]' => ['!value' => 'default']],
         ],
       ],
@@ -858,8 +858,8 @@ class EuCookieComplianceConfigForm extends ConfigFormBase {
       ->set('popup_scrolling_confirmation', $form_state->getValue('popup_scrolling_confirmation'))
       ->set('popup_position', $form_state->getValue('popup_position'))
       ->set('popup_agree_button_message', $form_state->getValue('popup_agree_button_message'))
-      ->set('show_disagree_button', $form_state->getValue('disagree_button'))
-      ->set('popup_disagree_button_message', $form_state->getValue('popup_disagree_button_message'))
+      ->set('show_more_info', $form_state->getValue('show_more_info'))
+      ->set('popup_more_info_button_message', $form_state->getValue('popup_more_info_button_message'))
       ->set('popup_info', $form_state->getValue('popup_info'))
       ->set('use_mobile_message', $form_state->getValue('use_mobile_message'))
       ->set('mobile_popup_info', $form_state->getValue('use_mobile_message') ? $form_state->getValue('mobile_popup_info') : ['value' => '', 'format' => filter_default_format()])

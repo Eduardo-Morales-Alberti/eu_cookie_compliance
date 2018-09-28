@@ -179,7 +179,7 @@ function eu_cookie_compliance_page_attachments(&$attachments) {
       '#theme' => 'eu_cookie_compliance_popup_info',
       '#message' => check_markup($popup_text_info, $config->get('popup_info.format'), FALSE),
       '#agree_button' => $primary_button_label,
-      '#disagree_button' => ($config->get('show_disagree_button') == TRUE) ? $config->get('popup_disagree_button_message') : FALSE,
+      '#more_info_button' => ($config->get('show_more_info') == TRUE) ? $config->get('popup_more_info_button_message') : FALSE,
       '#secondary_button_label' => $secondary_button_label,
       '#primary_button_class' => $primary_button_class,
       '#secondary_button_class' => $secondary_button_class,
@@ -189,7 +189,7 @@ function eu_cookie_compliance_page_attachments(&$attachments) {
       '#theme' => 'eu_cookie_compliance_popup_info',
       '#message' => check_markup($mobile_popup_text_info, $config->get('popup_info.format'), FALSE),
       '#agree_button' => $primary_button_label,
-      '#disagree_button' => ($config->get('show_disagree_button') == TRUE) ? $config->get('popup_disagree_button_message') : FALSE,
+      '#more_info_button' => ($config->get('show_more_info') == TRUE) ? $config->get('popup_more_info_button_message') : FALSE,
       '#secondary_button_label' => $secondary_button_label,
       '#primary_button_class' => $primary_button_class,
       '#secondary_button_class' => $secondary_button_class,
@@ -198,7 +198,7 @@ function eu_cookie_compliance_page_attachments(&$attachments) {
       '#theme' => 'eu_cookie_compliance_popup_agreed',
       '#message' => check_markup($popup_text_agreed, $config->get('popup_agreed.format'), FALSE),
       '#hide_button' => $config->get('popup_hide_button_message'),
-      '#find_more_button' => ($config->get('show_disagree_button') == TRUE) ? $config->get('popup_find_more_button_message') : FALSE,
+      '#find_more_button' => ($config->get('show_more_info') == TRUE) ? $config->get('popup_find_more_button_message') : FALSE,
     ];
     $withdraw_markup = [
       '#theme' => 'eu_cookie_compliance_withdraw',
@@ -352,7 +352,7 @@ function eu_cookie_compliance_theme($existing, $type, $theme, $path) {
       'variables' => [
         'message' => NULL,
         'agree_button' => NULL,
-        'disagree_button' => NULL,
+        'more_info_button' => NULL,
         'secondary_button_label' => NULL,
         'primary_button_class' => NULL,
         'secondary_button_class' => NULL,
