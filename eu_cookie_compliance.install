@@ -322,12 +322,21 @@ function eu_cookie_compliance_update_8111() {
       ->getEditable('eu_cookie_compliance.settings')
       ->set('show_more_info', $show_disagree_button)
       ->save();
+    \Drupal::configFactory()
+      ->getEditable('eu_cookie_compliance.settings')
+      ->clear('show_disagree_button')
+      ->save();
+
   }
 
   if (!empty($popup_disagree_button_message)) {
     \Drupal::configFactory()
       ->getEditable('eu_cookie_compliance.settings')
       ->set('popup_more_info_button_message', $popup_disagree_button_message)
+      ->save();
+    \Drupal::configFactory()
+      ->getEditable('eu_cookie_compliance.settings')
+      ->clear('popup_disagree_button_message')
       ->save();
   }
 }
