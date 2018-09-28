@@ -320,14 +320,14 @@ function eu_cookie_compliance_update_8111() {
   if (!empty($show_disagree_button)) {
     \Drupal::configFactory()
       ->getEditable('eu_cookie_compliance.settings')
-      ->set('show_disagree_button', $show_disagree_button)
+      ->set('show_more_info', $show_disagree_button)
       ->save();
   }
 
   if (!empty($popup_disagree_button_message)) {
     \Drupal::configFactory()
       ->getEditable('eu_cookie_compliance.settings')
-      ->set('popup_disagree_button_message', $popup_disagree_button_message)
+      ->set('popup_more_info_button_message', $popup_disagree_button_message)
       ->save();
   }
 }
